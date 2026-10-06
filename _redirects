@@ -1,7 +1,7 @@
 # ==============================================================================
-# CLOUDFLARE PAGES & NETLIFY REDIRECTS
+# CLOUDFLARE PAGES REDIRECTS
 # ==============================================================================
 
-# Proteger documentación interna y notas de agentes (devuelve 404 en la web)
-/docs/*    /    404
-/*.md      /    404
+# Redirigir intentos de acceso a la documentacion al inicio con codigo 302
+/docs/*    /    302
+/*.md      /    302
