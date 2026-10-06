@@ -12,7 +12,7 @@
 const CONFIG = {
   // Número de WhatsApp (código de país + número, SIN espacios, guiones ni '+')
   // Ejemplo Venezuela: '584121234567' | Ejemplo Colombia: '573001234567' | Ejemplo México: '5215512345678'
-  whatsappPhone: '584120000000', // <-- REEMPLAZA ESTE PLACEHOLDER CON TU NÚMERO REAL
+  whatsappPhone: '573189552795', // <-- REEMPLAZA ESTE PLACEHOLDER CON TU NÚMERO REAL
 
   // Mensaje por defecto para el botón flotante y enlaces rápidos
   whatsappFloatingMessage: '¡Hola Divina Experiencia! Quisiera solicitar información sobre sus experiencias culinarias y team building corporativo.',
