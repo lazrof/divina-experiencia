@@ -11,3 +11,10 @@
 
 /js/*
   Cache-Control: public, max-age=604800, must-revalidate
+
+/docs/*
+  X-Robots-Tag: noindex, nofollow
+
+/*.md
+  X-Robots-Tag: noindex, nofollow
+
