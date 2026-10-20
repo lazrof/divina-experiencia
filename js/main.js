@@ -12,7 +12,8 @@
 const CONFIG = {
   // Número de WhatsApp (código de país + número, SIN espacios, guiones ni '+')
   // Ejemplo Venezuela: '584121234567' | Ejemplo Colombia: '573001234567' | Ejemplo México: '5215512345678'
-  whatsappPhone: '573189552795', // <-- REEMPLAZA ESTE PLACEHOLDER CON TU NÚMERO REAL
+  whatsappPhone: '573189552795',
+  chefPhone: '573232678195',
 
   // Mensaje por defecto para el botón flotante y enlaces rápidos
   whatsappFloatingMessage: '¡Hola Divina Experiencia! Quisiera solicitar información sobre sus experiencias culinarias y team building corporativo.',
@@ -308,6 +309,12 @@ function initWhatsAppLinks() {
 
   const footerLink = document.getElementById('footer-wa-link');
   if (footerLink) footerLink.href = url;
+
+  const chefLink = document.getElementById('chef-wa-link');
+  if (chefLink) {
+    const message = 'Hola, quisiera comunicarme con el chef para agendar una llamada.';
+    chefLink.href = `https://wa.me/${CONFIG.chefPhone}?text=${encodeURIComponent(message)}`;
+  }
 }
 
 // ==============================================================================
