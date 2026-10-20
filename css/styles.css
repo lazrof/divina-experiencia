@@ -86,6 +86,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: 700;
   line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 a {
@@ -109,7 +110,7 @@ button, input, select, textarea {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
 }
 
 .container-wide {
@@ -138,7 +139,7 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.9rem 1.5rem;
+  padding: 0.75rem 1rem;
   max-width: 1320px;
   margin: 0 auto;
 }
@@ -153,7 +154,8 @@ button, input, select, textarea {
   display: block;
   width: 175px;
   height: 86px;
-  object-fit: cover;
+  max-width: 48vw;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -198,7 +200,7 @@ button, input, select, textarea {
 }
 
 .nav-toggle {
-  display: none;
+  display: block;
   background: none;
   border: none;
   color: #ffffff;
@@ -209,6 +211,25 @@ button, input, select, textarea {
 .nav-toggle svg {
   width: 26px;
   height: 26px;
+}
+
+.nav-links,
+.nav-actions .btn {
+  display: none;
+}
+
+.nav-links.mobile-open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #071326;
+  padding: 1.5rem 1rem;
+  gap: 1.25rem;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* --------------------------------------------------------------------------
@@ -281,7 +302,7 @@ button, input, select, textarea {
   color: #ffffff;
   position: relative;
   overflow: hidden;
-  padding: 4rem 0 3.5rem;
+  padding: 2.5rem 0 3rem;
   border-bottom: 1px solid rgba(197, 160, 89, 0.2);
 }
 
@@ -297,8 +318,8 @@ button, input, select, textarea {
 
 .hero-split-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3.5rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
   align-items: center;
   position: relative;
   z-index: 2;
@@ -328,7 +349,7 @@ button, input, select, textarea {
 }
 
 .hero-h1 {
-  font-size: 2.85rem;
+  font-size: 1.95rem;
   font-weight: 800;
   line-height: 1.15;
   color: #ffffff;
@@ -344,7 +365,7 @@ button, input, select, textarea {
 }
 
 .hero-lead-text {
-  font-size: 1.15rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: rgba(248, 250, 252, 0.88);
   margin-bottom: 2.2rem;
@@ -353,14 +374,22 @@ button, input, select, textarea {
 
 .hero-ctas {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
+  width: 100%;
   gap: 1.1rem;
   margin-bottom: 2.5rem;
 }
 
+.hero-ctas .btn {
+  width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+
 .hero-proof-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.2rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -549,7 +578,7 @@ button, input, select, textarea {
   letter-spacing: 1.5px;
   color: var(--color-gold);
   font-weight: 600;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .trust-badges {
@@ -583,7 +612,7 @@ button, input, select, textarea {
    7. SECCIÓN COMÚN: CABECERAS Y CONTENEDORES
    -------------------------------------------------------------------------- */
 .section {
-  padding: 5.5rem 0;
+  padding: 3.5rem 0;
 }
 
 .section-dark {
@@ -613,7 +642,7 @@ button, input, select, textarea {
 }
 
 .section-title {
-  font-size: 2.35rem;
+  font-size: 1.8rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
@@ -646,7 +675,7 @@ button, input, select, textarea {
    -------------------------------------------------------------------------- */
 .pillars-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
 
@@ -742,7 +771,7 @@ button, input, select, textarea {
    -------------------------------------------------------------------------- */
 .comparison-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   max-width: 1100px;
   margin: 0 auto;
@@ -854,7 +883,7 @@ button, input, select, textarea {
    -------------------------------------------------------------------------- */
 .formats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
 
@@ -965,7 +994,7 @@ button, input, select, textarea {
    -------------------------------------------------------------------------- */
 .social-proof-wrap {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 2rem;
   margin-bottom: 3.5rem;
 }
@@ -1055,7 +1084,7 @@ button, input, select, textarea {
 
 .feedback-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
 }
@@ -1135,8 +1164,8 @@ button, input, select, textarea {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
 }
 
 .gallery-item {
@@ -1169,7 +1198,7 @@ button, input, select, textarea {
   justify-content: flex-end;
   padding: 1.25rem;
   color: #ffffff;
-  opacity: 0;
+  opacity: 1;
   transition: opacity var(--transition-normal);
 }
 
@@ -1187,9 +1216,10 @@ button, input, select, textarea {
 }
 
 .gallery-item-title {
-  font-size: 0.92rem;
+  font-size: 0.78rem;
   font-weight: 600;
   line-height: 1.3;
+  overflow-wrap: anywhere;
 }
 
 /* --------------------------------------------------------------------------
@@ -1265,8 +1295,8 @@ button, input, select, textarea {
    -------------------------------------------------------------------------- */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  gap: 3.5rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
   align-items: flex-start;
 }
 
@@ -1274,13 +1304,21 @@ button, input, select, textarea {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  min-width: 0;
+}
+
+.contact-info-col > .section-header {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
 }
 
 .contact-pitch-card {
   background: rgba(15, 36, 72, 0.6);
   border: 1px solid rgba(197, 160, 89, 0.25);
   border-radius: var(--radius-lg);
-  padding: 2.25rem 2rem;
+  padding: 1.5rem 1rem;
   backdrop-filter: blur(8px);
 }
 
@@ -1301,16 +1339,17 @@ button, input, select, textarea {
   background: rgba(37, 211, 102, 0.1);
   border: 1px solid rgba(37, 211, 102, 0.35);
   border-radius: var(--radius-md);
-  padding: 1.25rem 1.5rem;
+  padding: 1rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: stretch;
   gap: 1rem;
 }
 
 .direct-wa-text {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .direct-wa-title {
@@ -1328,7 +1367,8 @@ button, input, select, textarea {
 .form-card {
   background: #ffffff;
   border-radius: var(--radius-lg);
-  padding: 3rem 2.5rem;
+  padding: 1.5rem 1rem;
+  min-width: 0;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(197, 160, 89, 0.3);
 }
@@ -1356,8 +1396,8 @@ button, input, select, textarea {
 
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .form-group {
@@ -1409,6 +1449,8 @@ button, input, select, textarea {
   padding: 1.15rem;
   font-size: 1.05rem;
   margin-top: 0.5rem;
+  white-space: normal;
+  text-align: center;
 }
 
 /* --------------------------------------------------------------------------
@@ -1423,8 +1465,8 @@ button, input, select, textarea {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
   margin-bottom: 3.5rem;
 }
 
@@ -1479,8 +1521,11 @@ button, input, select, textarea {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 2rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
   font-size: 0.82rem;
   color: rgba(148, 163, 184, 0.7);
 }
@@ -1490,11 +1535,11 @@ button, input, select, textarea {
    -------------------------------------------------------------------------- */
 .whatsapp-floating {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 1.25rem;
+  right: 1.25rem;
   z-index: 999;
-  width: 60px;
-  height: 60px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: #25d366;
   color: #ffffff;
@@ -1512,8 +1557,8 @@ button, input, select, textarea {
 }
 
 .whatsapp-floating svg {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 }
 
 .whatsapp-tooltip {
@@ -1606,14 +1651,27 @@ button, input, select, textarea {
 /* --------------------------------------------------------------------------
    19. RESPONSIVE / MOBILE-FIRST BREAKPOINTS
    -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .hero-split-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+@media (min-width: 769px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .navbar-container {
+    padding: 0.9rem 1.5rem;
   }
 
   .hero-h1 {
     font-size: 2.35rem;
+  }
+
+  .hero-ctas {
+    flex-direction: row;
+    width: auto;
+  }
+
+  .hero-ctas .btn {
+    width: auto;
+    white-space: nowrap;
   }
 
   .hero-slider-wrap {
@@ -1622,120 +1680,146 @@ button, input, select, textarea {
     width: 100%;
   }
 
-  .pillars-grid,
-  .formats-grid,
-  .social-proof-wrap {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav-links, .nav-actions .btn {
-    display: none;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-
-  .nav-links.mobile-open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #071326;
-    padding: 2rem 1.5rem;
-    gap: 1.5rem;
-    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-  }
-
-  .hero-split {
-    padding: 2.5rem 0 3rem;
-  }
-
-  .hero-h1 {
-    font-size: 1.95rem;
-  }
-
-  .hero-lead-text {
-    font-size: 1rem;
-  }
-
-  .hero-ctas {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .hero-ctas .btn {
-    width: 100%;
-  }
-
   .hero-proof-stats {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .pillars-grid,
   .formats-grid,
   .social-proof-wrap,
-  .comparison-container {
-    grid-template-columns: 1fr;
-  }
-
+  .comparison-container,
   .feedback-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
   }
 
-  .form-row {
-    grid-template-columns: 1fr;
+  .gallery-item-overlay {
+    opacity: 0;
+    padding: 1.25rem;
+  }
+
+  .gallery-item-title {
+    font-size: 0.92rem;
+  }
+
+  .contact-grid {
+    gap: 2.5rem;
+  }
+
+  .direct-wa-box {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .contact-pitch-card {
+    padding: 2.25rem 2rem;
   }
 
   .form-card {
     padding: 2rem 1.5rem;
   }
 
+  .form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem;
   }
 
   .footer-bottom {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
   }
 
   .whatsapp-floating {
-    bottom: 1.25rem;
-    right: 1.25rem;
-    width: 52px;
-    height: 52px;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
   }
 
   .whatsapp-floating svg {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .nav-links {
+    display: flex;
+  }
+
+  .nav-links.mobile-open {
+    position: static;
+    flex-direction: row;
+    background: transparent;
+    padding: 0;
+    gap: 2rem;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .nav-actions .btn {
+    display: inline-flex;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .section {
+    padding: 5.5rem 0;
+  }
+
+  .hero-split {
+    padding: 4rem 0 3.5rem;
+  }
+
+  .hero-split-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3.5rem;
+  }
+
+  .hero-slider-wrap {
+    max-width: none;
+    margin: 0;
+  }
+
+  .hero-h1 {
+    font-size: 2.85rem;
+  }
+
+  .pillars-grid,
+  .formats-grid,
+  .social-proof-wrap {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 1.25fr;
+    gap: 3.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .form-card {
+    padding: 3rem 2.5rem;
   }
 }
