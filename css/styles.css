@@ -159,6 +159,10 @@ button, input, select, textarea {
   object-position: center;
 }
 
+.brand-image-compact {
+  display: none;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -1652,6 +1656,17 @@ button, input, select, textarea {
    19. RESPONSIVE / MOBILE-FIRST BREAKPOINTS
    -------------------------------------------------------------------------- */
 @media (min-width: 769px) {
+  .brand-image-full {
+    display: none;
+  }
+
+  .brand-image-compact {
+    display: block;
+    width: 48px;
+    height: 48px;
+    max-width: none;
+  }
+
   .container {
     padding: 0 1.5rem;
   }
