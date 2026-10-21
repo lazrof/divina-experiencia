@@ -58,6 +58,12 @@
   --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+@media (min-width: 1200px) {
+  .stat-number {
+    white-space: nowrap;
+  }
+}
+
 /* --------------------------------------------------------------------------
    2. RESET & ESTILOS BASE
    -------------------------------------------------------------------------- */
@@ -389,15 +395,27 @@ button, input, select, textarea {
 
 .hero-proof-stats {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.2rem;
-  padding-top: 2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding-top: 1.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .stat-item {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  min-height: 100px;
+  padding: 0.85rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  border-radius: var(--radius-md);
+}
+
+.hero-proof-stats .stat-item:last-child {
+  grid-column: 1 / -1;
+  min-height: 76px;
 }
 
 .stat-number {
@@ -558,48 +576,91 @@ button, input, select, textarea {
    6. BARRA DE AUTORIDAD Y CLIENTES REALES (TRUST BAR)
    -------------------------------------------------------------------------- */
 .trust-bar {
-  background: #061122;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 1.5rem 0;
+  background:
+    radial-gradient(ellipse at 50% 0, rgba(197, 160, 89, 0.08), transparent 65%),
+    linear-gradient(180deg, #071326 0%, #09172b 100%);
+  border-top: 1px solid rgba(197, 160, 89, 0.18);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.16);
+  padding: 2rem 0;
   color: #ffffff;
 }
 
 .trust-bar-inner {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1.15rem;
 }
 
 .trust-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
   font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   color: var(--color-gold);
   font-weight: 600;
-  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.trust-title::before,
+.trust-title::after {
+  content: '';
+  flex: 1 1 1rem;
+  max-width: 2rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.55));
+}
+
+.trust-title::after {
+  transform: rotate(180deg);
 }
 
 .trust-badges {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
 }
 
 .trust-item {
   display: flex;
+  min-width: 0;
+  min-height: 112px;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.95rem;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.8rem 0.55rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
   font-weight: 600;
+  line-height: 1.4;
   color: var(--color-text-dim);
-  transition: var(--transition-fast);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
 }
 
 .trust-item:hover {
+  transform: translateY(-2px);
   color: #ffffff;
+  border-color: rgba(197, 160, 89, 0.4);
+  background: rgba(197, 160, 89, 0.07);
+}
+
+.trust-icon {
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+  flex: 0 0 auto;
+  color: var(--color-gold-light);
+  border: 1px solid rgba(197, 160, 89, 0.28);
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.08);
 }
 
 .trust-icon {
@@ -1690,6 +1751,11 @@ button, input, select, textarea {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .hero-proof-stats .stat-item:last-child {
+    grid-column: auto;
+    min-height: 100px;
+  }
+
   .pillars-grid,
   .formats-grid,
   .social-proof-wrap,
@@ -1788,21 +1854,102 @@ button, input, select, textarea {
   }
 
   .hero-split {
-    padding: 4rem 0 3.5rem;
+    padding: 4.5rem 0 4rem;
   }
 
   .hero-split-grid {
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3.5rem;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: clamp(2.5rem, 5vw, 5rem);
   }
 
   .hero-slider-wrap {
     max-width: none;
     margin: 0;
+    width: 100%;
+    box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.75), 0 0 0 8px rgba(197, 160, 89, 0.035);
+  }
+
+  .hero-badge-b2b {
+    margin-bottom: 1.5rem;
+    padding: 0.55rem 1.15rem;
   }
 
   .hero-h1 {
-    font-size: 2.85rem;
+    max-width: 720px;
+    font-size: clamp(2.4rem, 2.5vw, 2.5rem);
+    line-height: 1.12;
+  }
+
+  .hero-lead-text {
+    max-width: 640px;
+    font-size: 1.08rem;
+  }
+
+  .hero-proof-stats {
+    gap: 0.75rem;
+    padding-top: 0;
+    margin-top: 2rem;
+    border-top: 0;
+  }
+
+  .stat-item {
+    min-height: 104px;
+    justify-content: center;
+    padding: 1rem 1.15rem;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: var(--radius-md);
+  }
+
+  .stat-number {
+    font-size: 1.35rem;
+  }
+
+  .trust-bar {
+    padding: 2.75rem 0 3rem;
+    background:
+      radial-gradient(ellipse at 50% 0, rgba(197, 160, 89, 0.08), transparent 65%),
+      linear-gradient(180deg, #071326 0%, #09172b 100%);
+    border-top: 1px solid rgba(197, 160, 89, 0.18);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.16);
+  }
+
+  .trust-bar-inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.65rem;
+  }
+
+  .trust-title {
+    gap: 1rem;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+  }
+
+  .trust-badges {
+    width: 100%;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .trust-item {
+    min-height: 116px;
+    gap: 0.65rem;
+    padding: 1.1rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.88rem;
+  }
+
+  .hero-h1 {
+    font-size: clamp(2.4rem, 2.5vw, 2.5rem);
+  }
+
+  .hero-ctas {
+    gap: 0.75rem;
+  }
+
+  .hero-ctas .btn {
+    padding: 0.95rem 1.25rem;
   }
 
   .pillars-grid,
