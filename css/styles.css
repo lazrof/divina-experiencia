@@ -426,6 +426,11 @@ button, input, select, textarea {
   line-height: 1.1;
 }
 
+.hero-proof-stats .stat-item:last-child .stat-number {
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  white-space: normal;
+}
+
 .stat-label {
   font-size: 0.82rem;
   color: var(--color-text-dim);
